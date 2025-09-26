@@ -19,7 +19,7 @@ const ChatDetail = () => {
   const { userId } = useParams();
   const { _id: currentUserId } = useUserInfo();
   const messageEndRef = useRef();
-  const { isInCall, startCall } = useVideoCallContext();
+  const { startCall } = useVideoCallContext();
 
   const { data: partnerInfo } = useGetUserInfoByIdQuery(userId);
 
@@ -166,7 +166,6 @@ const ChatDetail = () => {
         </div>
         <MessageCreation userId={userId} messageEndRef={messageEndRef} />
       </div>
-      <VideoCallRoom />
     </div>
   );
 };
