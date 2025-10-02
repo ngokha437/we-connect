@@ -1,6 +1,6 @@
 import { useVideoCallContext } from "@context/VideoCallProvider";
-import CallControls from "./CallControls";
 import { useEffect, useRef } from "react";
+import CallControls from "./CallControls";
 
 const VideoCallRoom = () => {
   const { isInCall, remoteStream, localStream } = useVideoCallContext();
@@ -25,10 +25,20 @@ const VideoCallRoom = () => {
     <div className="fixed inset-0 z-50 flex flex-col bg-black">
       <div className="relative flex-1">
         <div className="absolute inset-0 bg-red-300">
-          <video ref={remoteVideoRef} autoPlay playsInline />
+          <video
+            ref={remoteVideoRef}
+            autoPlay
+            playsInline
+            className="h-full w-full"
+          />
         </div>
-        <div className="absolute right-4 bottom-4 h-40 w-56 overflow-hidden rounded-lg bg-green-600">
-          <video ref={localVideoRef} autoPlay playsInline />
+        <div className="absolute right-4 bottom-4 h-40 w-72 overflow-hidden rounded-lg bg-gray-900">
+          <video
+            ref={localVideoRef}
+            autoPlay
+            playsInline
+            className="h-full w-full"
+          />
         </div>
       </div>
       <CallControls />

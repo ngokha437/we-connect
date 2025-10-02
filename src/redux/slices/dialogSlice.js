@@ -6,8 +6,9 @@ const initialState = {
   fullWidth: true,
   title: null,
   contentType: null,
+  closeActionType: '',
   additionalData: {},
-  actions: null
+  actions: null,
 };
 
 export const dialogSlice = createSlice({
