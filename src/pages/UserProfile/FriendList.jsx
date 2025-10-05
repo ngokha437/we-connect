@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 const FriendList = () => {
   const { userId } = useParams();
-  const { data, isFetching } = useGetFriendsByUserIdQuery(userId);
+  const { data } = useGetFriendsByUserIdQuery(userId);
 
   return (
     <div>

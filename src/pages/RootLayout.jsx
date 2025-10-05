@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 // Supports weights 100-900
+import Dialog from "@components/Dialog";
 import Loading from "@components/Loading";
 import "@fontsource-variable/public-sans";
 import { Alert, Snackbar } from "@mui/material";
@@ -32,6 +33,7 @@ const RootLayout = () => {
           {message}
         </Alert>
       </Snackbar>
+      <Dialog />
     </div>
   );
 };

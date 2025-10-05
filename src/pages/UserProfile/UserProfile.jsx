@@ -9,7 +9,7 @@ function UserProfile() {
   const { userId } = useParams();
   const location = useLocation();
   const { _id } = useUserInfo();
-  const { data = {}, isLoading, isFetching } = useGetUserInfoByIdQuery(userId);
+  const { data = {} } = useGetUserInfoByIdQuery(userId);
 
   const isMyProfile = userId === _id;
   const fullName = data.fullName;

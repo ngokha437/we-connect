@@ -4,7 +4,10 @@ import { Close } from "@mui/icons-material";
 import { DialogTitle, IconButton, Dialog as MUIDialog } from "@mui/material";
 import { closeDialog } from "@redux/slices/dialogSlice";
 import { useDispatch, useSelector } from "react-redux";
+import ConfirmDialog from "./configs/ConfirmDialog";
 import IncomingCallDialog from "./configs/IncomingCallDialog";
+import NewGroupDialog from "./configs/NewGroupDialog";
+import NewGroupPostDialog from "./configs/NewGroupPostDialog";
 import NewPostDialog from "./configs/NewPostDialog";
 
 const DynamicContent = ({ contentType, additionalData }) => {
@@ -13,6 +16,17 @@ const DynamicContent = ({ contentType, additionalData }) => {
       return <NewPostDialog userInfo={additionalData} />;
     case "INCOMING_CALL_DIALOG":
       return <IncomingCallDialog />;
+    case "NEW_GROUP_DIALOG":
+      return <NewGroupDialog />;
+    case "NEW_GROUP_POST_DIALOG":
+      return (
+        <NewGroupPostDialog
+          groupId={additionalData.groupId}
+          userInfo={additionalData.userInfo}
+        />
+      );
+    case "CONFIRM_DIALOG":
+      return <ConfirmDialog {...additionalData} />;
     default:
       return <p></p>;
   }

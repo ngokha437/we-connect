@@ -1,9 +1,15 @@
+import GroupDetail from "@components/Groups/GroupDetail";
+import GroupDiscussion from "@components/Groups/GroupDiscussion";
+import GroupExplore from "@components/Groups/GroupExplore";
+import GroupMembers from "@components/Groups/GroupMembers";
+import MyGroups from "@components/Groups/MyGroups";
 import ChatDetail from "@components/Messages/ChatDetail";
 import AccountSettings from "@pages/AccountSettings";
 import AuthLayout from "@pages/auth/AuthLayout";
 import LoginPage from "@pages/auth/LoginPage";
 import OTPVerifyPage from "@pages/auth/OTPVerifyPage";
 import RegisterPage from "@pages/auth/RegisterPage";
+import GroupPage from "@pages/GroupPage";
 import MessagePage from "@pages/MessagePage";
 import ProtectedLayout from "@pages/ProtectedLayout";
 import RootLayout from "@pages/RootLayout";
@@ -65,6 +71,42 @@ const router = createBrowserRouter([
               {
                 path: "account",
                 element: <AccountSettings />,
+              },
+            ],
+          },
+          {
+            path: "/groups",
+            element: <GroupPage />,
+            children: [
+              {
+                index: true,
+                element: <Navigate to="explore" replace />,
+              },
+              {
+                path: "explore",
+                element: <GroupExplore />,
+              },
+              {
+                path: "my-groups",
+                element: <MyGroups />,
+              },
+              {
+                path: ":groupId",
+                element: <GroupDetail />,
+                children: [
+                  {
+                    index: true,
+                    element: <Navigate to="discussion" replace />,
+                  },
+                  {
+                    path: "discussion",
+                    element: <GroupDiscussion />,
+                  },
+                  {
+                    path: "members",
+                    element: <GroupMembers />,
+                  },
+                ],
               },
             ],
           },

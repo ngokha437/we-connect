@@ -1,4 +1,3 @@
-import Dialog from "@components/Dialog";
 import Loading from "@components/Loading";
 import VideoCallProvider from "@context/VideoCallProvider";
 import { ThemeProvider } from "@mui/material";
@@ -17,7 +16,6 @@ createRoot(document.getElementById("root")).render(
       <ThemeProvider theme={theme}>
         <VideoCallProvider>
           <RouterProvider router={router} />
-          <Dialog />
         </VideoCallProvider>
       </ThemeProvider>
     </PersistGate>

@@ -47,7 +47,16 @@ const SocketProvider = ({ children }) => {
     socket.on(Events.CREATE_NOTIFICATION_REQUEST, (data) => {
       dispatch(
         rootApi.util.updateQueryData("getNotifications", undefined, (draft) => {
-          draft.notifications.unshift(data);
+          let newData = {...data}
+          if(data.userName) {
+            newData.author = {
+              _id: newData.userId,
+              fullName: newData.fullName,
+              image: newData.userImage
+            }
+          }
+
+          draft.notifications.unshift(newData);
         }),
       );
 
